@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #root > div:nth-child(1) {
+        width: 50vw;
+        height: 70vh;
+        background-color: ivory;
+      }
+      #root > div:nth-child(2) {
+        width: 30vw;
+        height: 70vh;
+        background-color: beige;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      #button {
+        width: 10vw;
+        height: 10vw;
+        border-radius: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div></div>
+      <div>
+        <p></p>
+        <span id="time"></span>
+        <input id="score" type="text" value="" name="score" />
+        <input id="button" type="button" value="" name="button" />
+      </div>
+    </div>
+    <script></script>
+  </body>
+</html>
