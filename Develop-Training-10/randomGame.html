@@ -35,6 +35,12 @@
         height: 10vw;
         border-radius: 30%;
       }
+      .click {
+        width: 1vw;
+        height: 1vw;
+        border-radius: 30%;
+        background-color: blue;
+      }
     </style>
   </head>
   <body>
@@ -42,11 +48,33 @@
       <div></div>
       <div>
         <p></p>
-        <span id="time"></span>
-        <input id="score" type="text" value="" name="score" />
+        <input id="time" type="text" value="" name="score" />
+        <span id="score">현재 점수</span>
         <input id="button" type="button" value="" name="button" />
       </div>
     </div>
-    <script></script>
+    <script>
+      let root = document.getElementById("root");
+      let panel = root.children[0];
+      let score = document.getElementById("score");
+      let button = document.getElementById("button");
+      let time = document.getElementById("time");
+      
+    //   function game() {}
+    //   let makediv = document.createElement("div");
+    //   panel.appendChild(makediv);
+    //   let makeDiv = panel.children[0];
+    //   makeDiv.className("click");
+
+      //   hander = true;
+
+      //   button.addEventListener("click", function () {
+      //     if (hander === true){
+      //         hander === false;
+      //     } else {
+
+      //     }
+      //   });
+    </script>
   </body>
 </html>
