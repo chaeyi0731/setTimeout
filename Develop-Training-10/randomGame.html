@@ -53,8 +53,16 @@
       let score = document.getElementById("score");
       let button = document.getElementById("button");
       let time = document.getElementById("time");
+      console.dir(panel);
 
-      function game() {}
+      setInterval(function () {
+        let makediv = document.createElement("div");
+        panel.appendChild(makediv);
+        let makerdiv = panel.children[0];
+        makerdiv.style.width = "10px";
+        makerdiv.style.height = "10px";
+        makerdiv.style.backgroundColor = "pink";
+      }, 3000);
 
       //   hander = true;
 
