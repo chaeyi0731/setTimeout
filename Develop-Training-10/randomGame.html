@@ -19,6 +19,7 @@
       #root > div:nth-child(1) {
         width: 50vw;
         height: 70vh;
+        border: 1px black solid;
         /* background-color: ivory; */
       }
       #root > div:nth-child(2) {
@@ -58,21 +59,23 @@
       setInterval(function () {
         let makediv = document.createElement("div");
         panel.appendChild(makediv);
-        let makerdiv = panel.children[0];
-        makerdiv.style.width = "10px";
-        makerdiv.style.height = "10px";
-        makerdiv.style.backgroundColor = "pink";
+        makediv.style.width = "10px";
+        makediv.style.height = "10px";
+        makediv.style.backgroundColor = "pink";
+        makediv.style.position = "relative";
+
+        makediv.addEventListener("click", function (event) {
+          let x = Math.floor(Math.random() * event.pageX + 200);
+          let y = Math.floor(Math.random() * event.pageY + 200);
+          let xString = x.toString();
+          let yString = y.toString();
+          makediv.style.top = xString + "px";
+          makediv.style.left = yString + "px";
+          makediv.addEventListener("click", function () {
+            makediv.remove();
+          });
+        });
       }, 3000);
-
-      //   hander = true;
-
-      //   button.addEventListener("click", function () {
-      //     if (hander === true){
-      //         hander === false;
-      //     } else {
-
-      //     }
-      //   });
     </script>
   </body>
 </html>
