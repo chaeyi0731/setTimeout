@@ -17,9 +17,10 @@
         align-items: center;
       }
       #root > div:nth-child(1) {
-        width: 50vw;
-        height: 70vh;
+        width: 500px;
+        height: 500px;
         border: 1px black solid;
+        position: relative;
         /* background-color: ivory; */
       }
       #root > div:nth-child(2) {
@@ -43,7 +44,7 @@
       <div></div>
       <div>
         <p></p>
-        <input id="time" type="text" value="" name="score" />
+        <input id="time" type="text" value="" name="time" />
         <span id="score">현재 점수</span>
         <input id="button" type="button" value="" name="button" />
       </div>
@@ -51,31 +52,50 @@
     <script>
       let root = document.getElementById("root");
       let panel = root.children[0];
-      let score = document.getElementById("score");
       let button = document.getElementById("button");
       let time = document.getElementById("time");
       console.dir(panel);
 
+      let timeValue = 10;
+
       setInterval(function () {
         let makediv = document.createElement("div");
         panel.appendChild(makediv);
-        makediv.style.width = "10px";
-        makediv.style.height = "10px";
+        makediv.style.width = "50px";
+        makediv.style.height = "50px";
         makediv.style.backgroundColor = "pink";
-        makediv.style.position = "relative";
+        makediv.style.position = "absolute";
+
+        console.log(Math.round(Math.random() * 10) * 50);
+        let x = Math.floor(Math.random() * 10) * 50;
+        let y = Math.floor(Math.random() * 10) * 50;
+        let xString = x.toString();
+        let ySting = y.toString();
+        makediv.style.left = xString + "px";
+        makediv.style.top = ySting + "px";
 
         makediv.addEventListener("click", function (event) {
-          let x = Math.floor(Math.random() * event.pageX + 200);
-          let y = Math.floor(Math.random() * event.pageY + 200);
-          let xString = x.toString();
-          let yString = y.toString();
-          makediv.style.top = xString + "px";
-          makediv.style.left = yString + "px";
-          makediv.addEventListener("click", function () {
-            makediv.remove();
-          });
+          makediv.remove();
+          function stop() {
+            clearInterval(makediv);
+          }
         });
       }, 3000);
+
+      function test111(params) {
+        let stop = setInterval(function () {
+          if (timeValue <= 0) {
+            clearInterval(stop);
+          }
+          time.value = timeValue;
+          console.log(timeValue);
+          timeValue = timeValue - 1;
+        }, 1000);
+      }
+
+      button.addEventListener("click", function () {
+        test111();
+      });
     </script>
   </body>
 </html>
