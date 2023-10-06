@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #root {
+        width: 100vw;
+        height: 100vh;
+        background-color: ivory;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <div id="sosa"></div>
+    </div>
+    <script>
+      const sosa = document.getElementById("sosa");
+      let mingoo = 100;
+      let root = document.getElementById("root");
+      console.log(sosa);
+
+      let hendler = true;
+      console.log(hendler);
+
+      let browidth = document.body.offsetWidth;
+      console.log(browidth / 2);
+      let browheigh = document.body.offsetHeight;
+      console.log(browheigh / 2);
+      //브라우저의 크기를 구하는 법
+
+      sosa.style.width = "100px";
+      sosa.style.height = "100px";
+      sosa.style.backgroundColor = "black";
+      sosa.style.position = "absolute";
+      sosa.style.top = mingoo + "px";
+      // div (sosa)의 크기와 색깔
+
+      setInterval(function () {
+        sosa.style.top = mingoo + "px";
+        sosa.style.left = mingoo + "px";
+        mingoo++;
+
+        //sosa를 대각선으로 움직이게 하는 방법
+
+        if (mingoo > 540) {
+          sosa.style.backgroundColor = "pink";
+        }
+        // sosa가
+        sosa.addEventListener("click", function () {
+          if (hendler === true) {
+            hendler = false;
+          } else {
+            hendler = true;
+          }
+          if (hendler === true) {
+            root.style.backgroundColor = "lightblue";
+            return;
+          }
+          if (hendler === false) {
+            root.style.backgroundColor = "lightpink";
+          }
+        });
+      }, 30);
+    </script>
+  </body>
+</html>
