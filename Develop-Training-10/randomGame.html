@@ -19,12 +19,12 @@
       #root > div:nth-child(1) {
         width: 50vw;
         height: 70vh;
-        background-color: ivory;
+        /* background-color: ivory; */
       }
       #root > div:nth-child(2) {
         width: 30vw;
         height: 70vh;
-        background-color: beige;
+        /* background-color: beige; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -41,11 +41,19 @@
         border-radius: 30%;
         background-color: blue;
       }
+      #dot {
+        width: 10px;
+        height: 10px;
+        background-color: blue;
+        border-radius: 30%;
+      }
     </style>
   </head>
   <body>
     <div id="root">
-      <div></div>
+      <div>
+        <div id="dot"></div>
+      </div>
       <div>
         <p></p>
         <input id="time" type="text" value="" name="score" />
@@ -59,12 +67,15 @@
       let score = document.getElementById("score");
       let button = document.getElementById("button");
       let time = document.getElementById("time");
-      
-    //   function game() {}
-    //   let makediv = document.createElement("div");
-    //   panel.appendChild(makediv);
-    //   let makeDiv = panel.children[0];
-    //   makeDiv.className("click");
+      let dot = document.getElementById("dot");
+      console.dir(dot);
+
+      // function gamez() {}
+      //   function game() {}
+      //   let makediv = document.createElement("div");
+      //   panel.appendChild(makediv);
+      //   let makeDiv = panel.children[0];
+      //   makeDiv.className("click");
 
       //   hander = true;
 
