@@ -86,8 +86,7 @@
           makediv.style.top = ySting + "px";
 
           if (timeValue <= 0) {
-            clearInterval(makediv);
-            time.value = timeValue;
+            clearInterval(game);
           }
           makediv.addEventListener("click", function (event) {
             makediv.remove();
