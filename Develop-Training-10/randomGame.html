@@ -58,19 +58,18 @@
 
       let timeValue = 10;
 
-      function timemer() {
+      function timer() {
         let stop = setInterval(function () {
           if (timeValue <= 0) {
             clearInterval(stop);
           }
           time.value = timeValue;
-          console.log(timeValue);
           timeValue = timeValue - 1;
         }, 1000);
       }
       button.addEventListener("click", function () {
-        timemer();
-        setInterval(function () {
+        timer();
+        let game = setInterval(function () {
           let makediv = document.createElement("div");
           panel.appendChild(makediv);
           makediv.style.width = "50px";
@@ -86,13 +85,12 @@
           makediv.style.left = xString + "px";
           makediv.style.top = ySting + "px";
 
+          if (timeValue <= 0) {
+            clearInterval(makediv);
+            time.value = timeValue;
+          }
           makediv.addEventListener("click", function (event) {
             makediv.remove();
-            function stop() {
-              if (timeValue <= 0) {
-                clearInterval(makediv);
-              }
-            }
           });
         }, 1000);
       });
