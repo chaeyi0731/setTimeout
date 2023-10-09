@@ -58,31 +58,7 @@
 
       let timeValue = 10;
 
-      setInterval(function () {
-        let makediv = document.createElement("div");
-        panel.appendChild(makediv);
-        makediv.style.width = "50px";
-        makediv.style.height = "50px";
-        makediv.style.backgroundColor = "pink";
-        makediv.style.position = "absolute";
-
-        console.log(Math.round(Math.random() * 10) * 50);
-        let x = Math.floor(Math.random() * 10) * 50;
-        let y = Math.floor(Math.random() * 10) * 50;
-        let xString = x.toString();
-        let ySting = y.toString();
-        makediv.style.left = xString + "px";
-        makediv.style.top = ySting + "px";
-
-        makediv.addEventListener("click", function (event) {
-          makediv.remove();
-          function stop() {
-            clearInterval(makediv);
-          }
-        });
-      }, 3000);
-
-      function test111(params) {
+      function timemer() {
         let stop = setInterval(function () {
           if (timeValue <= 0) {
             clearInterval(stop);
@@ -92,9 +68,33 @@
           timeValue = timeValue - 1;
         }, 1000);
       }
-
       button.addEventListener("click", function () {
-        test111();
+        timemer();
+        setInterval(function () {
+          let makediv = document.createElement("div");
+          panel.appendChild(makediv);
+          makediv.style.width = "50px";
+          makediv.style.height = "50px";
+          makediv.style.backgroundColor = "pink";
+          makediv.style.position = "absolute";
+
+          console.log(Math.round(Math.random() * 10) * 50);
+          let x = Math.floor(Math.random() * 10) * 50;
+          let y = Math.floor(Math.random() * 10) * 50;
+          let xString = x.toString();
+          let ySting = y.toString();
+          makediv.style.left = xString + "px";
+          makediv.style.top = ySting + "px";
+
+          makediv.addEventListener("click", function (event) {
+            makediv.remove();
+            function stop() {
+              if (timeValue <= 0) {
+                clearInterval(makediv);
+              }
+            }
+          });
+        }, 1000);
       });
     </script>
   </body>
