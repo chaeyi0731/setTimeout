@@ -63,21 +63,22 @@
       let button = document.getElementById("button");
       let time = document.getElementById("time");
       let score = document.getElementById("score");
+      let div = root.children[0];
       console.dir(panel);
 
-      let timeValue = 10;
+      let timeValue = 9;
       let count = 1;
 
+      function timer() {
+        let stop = setInterval(function () {
+          if (timeValue <= 0) {
+            clearInterval(stop);
+          }
+          time.value = timeValue;
+          timeValue = timeValue - 1;
+        }, 1000);
+      }
       button.addEventListener("click", function () {
-        function timer() {
-          let stop = setInterval(function () {
-            if (timeValue <= 0) {
-              clearInterval(stop);
-            }
-            time.value = timeValue;
-            timeValue = timeValue - 1;
-          }, 1000);
-        }
         timer();
         let game = setInterval(function () {
           let makediv = document.createElement("div");
@@ -97,15 +98,23 @@
 
           let handler = true;
 
+          if (timeValue <= 0) {
+            clearInterval(game);
+            root.style.width = "100vw";
+            root.style.height = "100vh";
+            root.style.backdropFilter = "blur(5px)";
+            root.style.top = "0px";
+            root.textContent = "당신의 점수는 " + score.value + "점 입니다!";
+            root.style.fontSize = "4vw";
+            root.style.fontWeight = "900";
+            root.style.textAlign = "center";
+          }
           makediv.addEventListener("click", function (event) {
             makediv.remove();
             if (handler === true) {
               score.value = count++;
             }
           });
-          if (timeValue <= 0) {
-            clearInterval(game);
-          }
         }, 500);
       });
     </script>
