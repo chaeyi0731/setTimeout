@@ -66,6 +66,7 @@
       console.dir(panel);
 
       let timeValue = 10;
+      let count = 1;
 
       button.addEventListener("click", function () {
         function timer() {
@@ -94,13 +95,18 @@
           makediv.style.left = xString + "px";
           makediv.style.top = ySting + "px";
 
+          let handler = true;
+
           makediv.addEventListener("click", function (event) {
             makediv.remove();
+            if (handler === true) {
+              score.value = count++;
+            }
           });
           if (timeValue <= 0) {
             clearInterval(game);
           }
-        }, 1000);
+        }, 500);
       });
     </script>
   </body>
