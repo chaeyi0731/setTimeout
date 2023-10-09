@@ -37,15 +37,23 @@
         height: 10vw;
         border-radius: 30%;
       }
+      #time {
+        width: 20vw;
+        height: 15vh;
+        font-size: 4vw;
+        font-weight: 900;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
     <div id="root">
       <div></div>
       <div>
-        <p></p>
-        <input id="time" type="text" value="" name="time" />
-        <span id="score">현재 점수</span>
+        <p>제한시간</p>
+        <input id="time" type="text" value="10" name="time" />
+        <span>현재 점수</span>
+        <input id="score" type="text" />
         <input id="button" type="button" value="" name="button" />
       </div>
     </div>
@@ -59,16 +67,16 @@
 
       let timeValue = 10;
 
-      function timer() {
-        let stop = setInterval(function () {
-          if (timeValue <= 0) {
-            clearInterval(stop);
-          }
-          time.value = timeValue;
-          timeValue = timeValue - 1;
-        }, 1000);
-      }
       button.addEventListener("click", function () {
+        function timer() {
+          let stop = setInterval(function () {
+            if (timeValue <= 0) {
+              clearInterval(stop);
+            }
+            time.value = timeValue;
+            timeValue = timeValue - 1;
+          }, 1000);
+        }
         timer();
         let game = setInterval(function () {
           let makediv = document.createElement("div");
@@ -86,12 +94,12 @@
           makediv.style.left = xString + "px";
           makediv.style.top = ySting + "px";
 
-          if (timeValue <= 0) {
-            clearInterval(game);
-          }
           makediv.addEventListener("click", function (event) {
             makediv.remove();
           });
+          if (timeValue <= 0) {
+            clearInterval(game);
+          }
         }, 1000);
       });
     </script>
